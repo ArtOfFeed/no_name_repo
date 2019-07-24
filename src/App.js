@@ -8,7 +8,7 @@ import Main from "./compontents/layouts/Main";
 function App() {
     return (
         <>
-            <Header />
+            <Header logo={logo}/>
             <Main />
             <Footer />
         </>
