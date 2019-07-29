@@ -1,23 +1,20 @@
 import React from 'react';
-import axios from 'axios';
-const token = 'Bearer xxx';
+import {getUsersListAC} from "../../redux/reducers/users-reducer";
+import Users from "./Users";
+import {connect} from 'react-redux';
 
-class UsersContainer extends React.Component {
-    componentDidMount() {
-        axios.get(`https://gorest.co.in/public-api/users`, {
-            headers: {
-                'Authorization': token,
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-            .then(res => console.log(res))
-            .catch(err => console.error(err));
+let mapStateToProps = (state) => {
+    return {
+        users: state.usersPage.users
     }
-    render () {
-        return (
-            <div>UsersList</div>
-        );
-    }
-}
+};
 
-export default UsersContainer;
+let mapDispatchToProps = (dispatch) => {
+    return {
+        getUsersList: (users) => {
+            dispatch(getUsersListAC(users));
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

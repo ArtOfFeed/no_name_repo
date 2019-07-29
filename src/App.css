@@ -46,6 +46,7 @@ ul {
     display: block;
 }
 .wrapper {
+    padding: 30px 0;
     flex: 1 0 auto;
 }
 header {
