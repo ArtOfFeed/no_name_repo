@@ -19,5 +19,4 @@ const userReducer = (state = initialState, action) => {
 
 export const getUsersListAC = (users) => ({type: GET_USERS_LIST, users});
 
-
 export default userReducer;

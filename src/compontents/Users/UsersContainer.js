@@ -1,4 +1,3 @@
-import React from 'react';
 import {getUsersListAC} from "../../redux/reducers/users-reducer";
 import Users from "./Users";
 import {connect} from 'react-redux';

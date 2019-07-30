@@ -1,10 +1,11 @@
 import React from 'react';
-import axios from 'axios';
+import * as axios from 'axios';
 const token = 'Bearer BHztJStcCQshH6ziltzxwVmk_R0PwzoZunui';
 
 class Users extends React.Component {
     componentDidMount() {
-        axios.get(`https://gorest.co.in/public-api/users`, {
+        if (this.props.users.length === 0) {
+            axios.get(`https://gorest.co.in/public-api/users`, {
                 headers: {
                     'Authorization': token,
                     'Access-Control-Allow-Origin': '*'
@@ -12,6 +13,7 @@ class Users extends React.Component {
             })
             .then(res => this.props.getUsersList(res.data.result))
             .catch(err => console.error(err));
+        }
     }
 
     render() {
